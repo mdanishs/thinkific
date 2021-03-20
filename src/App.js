@@ -9,7 +9,7 @@ import DayWeather from './components/DayWeather';
 
 function App() {
   return (
-    <Container className="p-4">
+    <Container className="pt-4">
       <Row>
         <Col>
           <h5 className="text-info">Weather Forecast</h5>
@@ -24,7 +24,9 @@ function App() {
         </Col>
       </Row>
       <Row className="pt-3">
-        <Col>
+        <Col className="day-weather-list">
+          <DayWeather/>
+          <DayWeather/>
           <DayWeather/>
         </Col>
       </Row>

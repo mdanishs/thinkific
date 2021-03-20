@@ -1,0 +1,41 @@
+.capitalize {
+  text-transform: capitalize;
+}
+
+.extra-data img {
+  height: 50px;
+}
+
+.current-weather-container {
+  border-radius: 5px;
+  background: linear-gradient(
+    270deg,
+    rgba(83, 194, 212, 1) 0%,
+    rgba(23, 162, 184, 1) 38%
+  );
+}
+
+.current-weather-container .temprature {
+  font-size: 3.5em;
+  font-weight: lighter;
+}
+
+.day-weather-container {
+  background-color: #f7f7f7;
+  border-radius: 5px;
+}
+
+.day-weather-list .day-weather-container {
+  margin-bottom: 5px;
+}
+
+.day-weather-container .extra-data {
+  background-color: #eeeeeea1;
+  border-radius: 5px;
+  color: #17a2b8 !important;
+  margin: 4px;
+}
+
+.day-weather-container .time-list {
+  overflow-x: auto;
+}
