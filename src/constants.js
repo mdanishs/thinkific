@@ -8,5 +8,5 @@ export const IMAGES = {
   HUMIDITY: '/humidity.svg'
 }
 
-export const DATE_FORMAT = 'dddd D, MMMM YYYY';
+export const COMMON_DATE_FORMAT = 'dddd D, MMMM YYYY';
 export const UNITS = 'metric';

@@ -1,22 +1,29 @@
 import { Row, Col } from 'react-bootstrap';
+import { getFormattedDate, getWeatherIconUrl } from '../utils';
 import ExtraData from './ExtraData';
 
-const DayWeather = ({ weatherData }) => {
+const DayWeather = ({ weatherData, day }) => {
+  const renderWeatherDescription = (data) => (
+    <div className="weather-description">
+      <div className="text-muted"><small>{data.weather[0].main}</small></div>
+      <div className="temprature">{data.main.temp}&deg;</div>
+    </div>
+  )
   return (
     <Row className="day-weather-container p-3">
-      <Col md={4} className="text-muted">
-        <strong>Saturday 21, March 2020</strong>
-        <div>Light Rain</div>
-      </Col>
-      <Col xs={12} md={8} className="time-list d-flex justify-content-between pt-2 pt-md-0 text-info">
-        <ExtraData title="0300" description="39" />
-        <ExtraData title="0300" description="39" />
-        <ExtraData title="0300" description="39" />
-        <ExtraData title="0300" description="39" />
-        <ExtraData title="0300" description="39" />
-        <ExtraData title="0300" description="39" />
-        <ExtraData title="0300" description="39" />
-        <ExtraData title="0300" description="39" />
+      <Col>
+        <h5 className="text-dark">{day}</h5>
+        <div className="time-list d-flex justify-content-between pt-2 pt-md-0">
+          {
+            weatherData.map(data => (
+              <ExtraData
+                title={getFormattedDate(data.dt, 'HH:MM')}
+                icon={getWeatherIconUrl(data.weather[0].icon)}
+                description={renderWeatherDescription(data)}
+              />
+            ))
+          }
+        </div>
       </Col>
     </Row>
   )

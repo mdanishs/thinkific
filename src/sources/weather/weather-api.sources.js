@@ -13,6 +13,7 @@ import {
   getCurrentWeatherFail,
 } from '../../redux/actions';
 import { MESSAGES, UNITS } from '../../constants';
+import { getFiveDayWeatherNormalizer } from '../../normalizers';
 
 export function getFiveDayForecast(city) {
   return (dispatch) => {
@@ -24,7 +25,8 @@ export function getFiveDayForecast(city) {
         units: UNITS
       }
     }).then(res => {
-      dispatch(getFiveDayWeatherSuccess(res.data.list));
+      let data = getFiveDayWeatherNormalizer(res.data.list);
+      dispatch(getFiveDayWeatherSuccess(data));
     }).catch(err => {
       let error = MESSAGES.SOMETHING_WENT_WRONG;
       if (err.response && err.response.data) {

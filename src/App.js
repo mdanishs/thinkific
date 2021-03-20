@@ -5,7 +5,7 @@ import {
 } from 'react-bootstrap';
 import SearchControl from './components/SearchControl';
 import CurrentWeather from './components/CurrentWeather';
-import DayWeather from './components/DayWeather';
+import DayWeatherList from './components/DayWeatherList';
 
 function App() {
   return (
@@ -25,12 +25,10 @@ function App() {
       </Row>
       <Row className="pt-3">
         <Col className="day-weather-list">
-          <DayWeather/>
-          <DayWeather/>
-          <DayWeather/>
+          <DayWeatherList />
         </Col>
       </Row>
-    </Container >
+    </Container>
   );
 }
 

@@ -5,9 +5,8 @@ import {
 } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import Skeleton from 'react-skeleton-loader';
-import dayjs from 'dayjs';
 import ExtraData from './ExtraData';
-import { IMAGES, DATE_FORMAT } from '../constants';
+import { IMAGES, COMMON_DATE_FORMAT } from '../constants';
 import { getCurrentWeather } from '../sources';
 import { getFormattedDate, getWeatherIconUrl } from '../utils';
 
@@ -32,7 +31,7 @@ const CurrentWeather = () => {
             </div>
           )}
           <h2 className="temprature pt-3">{weatherData.data.main.temp}&deg;</h2>
-          <h6>{getFormattedDate(weatherData.data.dt, DATE_FORMAT)} &bull; {weatherData.data.name}</h6>
+          <h6>{getFormattedDate(weatherData.data.dt, COMMON_DATE_FORMAT)} &bull; {weatherData.data.name}</h6>
         </Col>
         <Col xs={12} md={6} className="d-flex justify-content-between align-items-center">
           <ExtraData

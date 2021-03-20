@@ -34,10 +34,26 @@
 }
 
 .day-weather-container .extra-data {
-  background-color: #eeeeeea1;
+  background-color: #ffffffe1;
   border-radius: 5px;
   color: #17a2b8 !important;
   margin: 4px;
+  min-width: 100px;
+}
+.day-weather-container .extra-data .temprature{
+  font-weight: lighter;
+  font-size: 1.5em;
+}
+
+.day-weather-container .extra-data img{
+  height: 30px;
+}
+
+.day-weather-container .extra-data .weather-description{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .day-weather-container .time-list {

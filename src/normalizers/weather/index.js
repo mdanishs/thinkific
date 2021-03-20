@@ -1,0 +1,1 @@
+export * from './get-five-day-weather.normalizer';
