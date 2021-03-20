@@ -12,15 +12,16 @@ import {
   getCurrentWeatherSuccess,
   getCurrentWeatherFail,
 } from '../../redux/actions';
-import { MESSAGES } from '../../constants';
+import { MESSAGES, UNITS } from '../../constants';
 
 export function getFiveDayForecast(city) {
   return (dispatch) => {
-    getFiveDayWeatherInit();
+    dispatch(getFiveDayWeatherInit());
     axios.get(GET_FIVE_DAY_WEATHER_URL, {
       params: {
         q: city,
-        appid: API_KEY
+        appid: API_KEY,
+        units: UNITS
       }
     }).then(res => {
       dispatch(getFiveDayWeatherSuccess(res.data.list));
@@ -36,11 +37,12 @@ export function getFiveDayForecast(city) {
 
 export function getCurrentWeather(city) {
   return (dispatch) => {
-    getCurrentWeatherInit();
+    dispatch(getCurrentWeatherInit());
     axios.get(GET_CURRENT_WEATHER_URL, {
       params: {
         q: city,
-        appid: API_KEY
+        appid: API_KEY,
+        units: UNITS
       }
     }).then(res => {
       dispatch(getCurrentWeatherSuccess(res.data));

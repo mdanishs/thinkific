@@ -15,6 +15,10 @@
   );
 }
 
+.current-weather-container .weather-icon{
+  height: 50px;
+}
+
 .current-weather-container .temprature {
   font-size: 3.5em;
   font-weight: lighter;

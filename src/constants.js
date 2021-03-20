@@ -7,3 +7,6 @@ export const IMAGES = {
   TEMPRATURE: '/temprature.svg',
   HUMIDITY: '/humidity.svg'
 }
+
+export const DATE_FORMAT = 'dddd D, MMMM YYYY';
+export const UNITS = 'metric';
