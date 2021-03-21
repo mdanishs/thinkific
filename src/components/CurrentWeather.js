@@ -18,22 +18,13 @@ const CurrentWeather = () => {
 
   useEffect(() => {
     if (selectedCityData.data && selectedCityData.data.city)
-      dispatch(getCurrentWeather(selectedCityData.data.city));
+      dispatch(getCurrentWeather({ city: selectedCityData.data.city }));
   }, [selectedCityData]);
 
-  if (!selectedCityData.data || !selectedCityData.data.city) {
-    return (
-      <Row className="current-weather-container p-3 text-light">
-        <Col>
-          <h4>Please search and select a city</h4>
-        </Col>
-      </Row>
-    )
-  }
   if (weatherData.isLoading) return (
     <Skeleton width="100%" height="150px" widthRandomness={0} />
   )
-  if (weatherData.isFetched) {
+  if (weatherData.isSuccess) {
     return (
       <Row className="current-weather-container p-3 text-light">
         <Col>

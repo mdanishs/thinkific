@@ -11,7 +11,7 @@ const DayWeatherList = () => {
 
   useEffect(() => {
     if (selectedCityData.data && selectedCityData.data.city)
-      dispatch(getFiveDayForecast(selectedCityData.data.city));
+      dispatch(getFiveDayForecast({ city: selectedCityData.data.city }));
   }, [selectedCityData]);
 
   if (weatherData.isLoading) {

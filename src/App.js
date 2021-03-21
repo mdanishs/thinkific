@@ -1,13 +1,32 @@
+import { useEffect } from 'react';
 import {
   Col,
   Container,
   Row
 } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
 import SearchControl from './components/SearchControl';
 import CurrentWeather from './components/CurrentWeather';
 import DayWeatherList from './components/DayWeatherList';
+import { getCurrentWeather, getFiveDayForecast } from './sources';
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        dispatch(getCurrentWeather({
+          lat: position.coords.latitude,
+          lon: position.coords.longitude
+        }))
+        dispatch(getFiveDayForecast({
+          lat: position.coords.latitude,
+          lon: position.coords.longitude
+        }))
+      })
+    }
+  })
+
   return (
     <Container className="pt-4">
       <Row>

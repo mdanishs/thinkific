@@ -15,12 +15,14 @@ import {
 import { MESSAGES, UNITS } from '../../constants';
 import { getFiveDayWeatherNormalizer } from '../../normalizers';
 
-export function getFiveDayForecast(city) {
+export function getFiveDayForecast({ city, lat, lon }) {
   return (dispatch) => {
     dispatch(getFiveDayWeatherInit());
     axios.get(GET_FIVE_DAY_WEATHER_URL, {
       params: {
         q: city,
+        lat,
+        lon,
         appid: API_KEY,
         units: UNITS
       }
@@ -37,14 +39,16 @@ export function getFiveDayForecast(city) {
   }
 }
 
-export function getCurrentWeather(city) {
+export function getCurrentWeather({ city, lat, lon }) {
   return (dispatch) => {
     dispatch(getCurrentWeatherInit());
     axios.get(GET_CURRENT_WEATHER_URL, {
       params: {
         q: city,
         appid: API_KEY,
-        units: UNITS
+        units: UNITS,
+        lat,
+        lon
       }
     }).then(res => {
       dispatch(getCurrentWeatherSuccess(res.data));
