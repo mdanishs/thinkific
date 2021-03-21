@@ -9,7 +9,7 @@ Application shows current weather data and 5 day forecast for a particular city.
 ### Date
 21st March 2021
 ### Location of deployed application
-https://605765f7eb158112b1b41758--quirky-nightingale-95d904.netlify.app/
+https://quirky-nightingale-95d904.netlify.app/
 ### Time spent
 I completed the assignment in multiple breaks. In total approximately, it took me around 5-6 hours
 ### Assumptions made
