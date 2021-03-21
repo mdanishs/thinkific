@@ -29,7 +29,7 @@ function App() {
         }))
       })
     }
-  })
+  },[]);
 
   return (
     <Container className="pt-4">

@@ -6,7 +6,7 @@ const DayWeather = ({ weatherData, day }) => {
   const renderWeatherDescription = (data) => (
     <div className="weather-description">
       <div className="text-muted"><small>{data.weather[0].main}</small></div>
-      <div className="temprature">{data.main.temp}&deg;C</div>
+      <div className="temprature">{parseFloat(data.main.temp).toFixed(0)}&deg;C</div>
     </div>
   )
   return (
