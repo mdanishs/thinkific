@@ -30,7 +30,7 @@ const CurrentWeather = () => {
         <Col>
           {weatherData.data.weather && weatherData.data.weather[0] && (
             <div className="capitalize">
-              <img className="weather-icon" src={getWeatherIconUrl(weatherData.data.weather[0].icon)} />
+              <img alt="weather icon" className="weather-icon" src={getWeatherIconUrl(weatherData.data.weather[0].icon)} />
               {weatherData.data.weather[0].description}
             </div>
           )}

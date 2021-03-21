@@ -1,70 +1,29 @@
-# Getting Started with Create React App
+## Notes
+#### About
+Application shows current weather data and 5 day forecast for a particular city. It mainly uses https://openweathermap.org/ endpoints to fetch the data. It asks for user location to show data on first load if user has not selected any city explicitly yet. 
+#### Major APIs used
+* ReactJS - as the frontend library
+* Bootstrap - as the ui theme library
+* Redux - to manage application state
+* Axios - to call API endpoints
+### Date
+21st March 2021
+### Location of deployed application
+https://605765f7eb158112b1b41758--quirky-nightingale-95d904.netlify.app/
+### Time spent
+I completed the assignment in multiple breaks. In total approximately, it took me around 5-6 hours
+### Assumptions made
+I assumed that user should be see some data by default, so I asked for the user location and fetched the weather data using geo-coordinates. Moreover, I thought the city selection list should be provided to user from where they can select a city, instead of them typing in a plain text (which was prone to typos), so I used a third party api which allows me to search city using name of the city.
+### Shortcuts/Compromises made
+There is some redundancy in the way reducers and actions are created, we can improve them by instantiating them instead of creating separate files for each of them. All the reducers share a similar structure the type of the data property is the one thing which varies, for that we can instantiate them based on type as a deciding parameter.
+There is only one .env file, which is also commited as this was a demo project, definitely in real application it will be handled in a different way.
+### Stretch goals attempted
+For the users to select city, I could have included the list in the bundle, but bundle size will increase a lot by doing so (even with the minified version). I opted to go for city listing API where users can search city by the city name. So instead of going for shortcut of using bundled data, I thought it was more appropriate to go for a better solution of using API to fetch list of cities in small chunks.
+### Instructions to run assignment locally
+install the node modules using ```npm install``` and run the project using ```npm start```
+### What did you not include in your solution that you want us to know about?
+For me it is the presentation of data, I designed it so it can be a bit presentable. Better design and layout is definitely the improvement area. For e.g. showing graphs the hourly tempratures of the was a better idea in my opinion; and improvements like that are not included in the project.
+### Other information about your submission that you feel it's important that we know if applicable.
+To save time, I have used some prebuilt components and APIs, for the UI theme, I am using bootstrap, and for typeahead textbox I am using an npm package based on react and bootstrap.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Your feedback on this technical challenge

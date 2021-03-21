@@ -1,10 +1,10 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Col,
   Container,
   Row
 } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import SearchControl from './components/SearchControl';
 import CurrentWeather from './components/CurrentWeather';
 import DayWeatherList from './components/DayWeatherList';
@@ -12,9 +12,13 @@ import { getCurrentWeather, getFiveDayForecast } from './sources';
 
 function App() {
   const dispatch = useDispatch();
+  const [geoLocationAvailable, setGeolocationAvailable] = useState(false);
+  const selectedCity = useSelector(state => state.locationReducer.setCity);
+
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
+        setGeolocationAvailable(true);
         dispatch(getCurrentWeather({
           lat: position.coords.latitude,
           lon: position.coords.longitude
@@ -37,6 +41,17 @@ function App() {
           <SearchControl />
         </Col>
       </Row>
+      {!geoLocationAvailable && !selectedCity.data &&
+        <Row className="pt-3">
+          <Col xs={12}>
+            <Row className="current-weather-container p-3 text-light">
+              <Col>
+                <h4>Please search and select a city</h4>
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+      }
       <Row className="pt-3">
         <Col xs={12}>
           <CurrentWeather />
