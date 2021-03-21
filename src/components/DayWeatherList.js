@@ -7,10 +7,12 @@ import DayWeather from "./DayWeather"
 const DayWeatherList = () => {
   const dispatch = useDispatch();
   const weatherData = useSelector(state => state.weatherReducer.getFiveDayWeather);
+  const selectedCityData = useSelector(state => state.locationReducer.setCity);
 
   useEffect(() => {
-    dispatch(getFiveDayForecast('london'));
-  }, [])
+    if (selectedCityData.data && selectedCityData.data.city)
+      dispatch(getFiveDayForecast(selectedCityData.data.city));
+  }, [selectedCityData]);
 
   if (weatherData.isLoading) {
     return (
@@ -24,7 +26,7 @@ const DayWeatherList = () => {
 
   if (weatherData.isSuccess) {
     return Object.keys(weatherData.data).map(day => {
-      return <DayWeather day={day} weatherData={weatherData.data[day]} />
+      return <DayWeather key={day} day={day} weatherData={weatherData.data[day]} />
     })
 
   }

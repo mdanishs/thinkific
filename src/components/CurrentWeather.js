@@ -14,12 +14,25 @@ const CurrentWeather = () => {
 
   const dispatch = useDispatch();
   const weatherData = useSelector(state => state.weatherReducer.getCurrentWeather);
+  const selectedCityData = useSelector(state => state.locationReducer.setCity);
 
   useEffect(() => {
-    dispatch(getCurrentWeather('london'));
-  }, []);
+    if (selectedCityData.data && selectedCityData.data.city)
+      dispatch(getCurrentWeather(selectedCityData.data.city));
+  }, [selectedCityData]);
 
-  if (weatherData.isLoading) return <Skeleton width="100%" height="150px" widthRandomness={0} />
+  if (!selectedCityData.data || !selectedCityData.data.city) {
+    return (
+      <Row className="current-weather-container p-3 text-light">
+        <Col>
+          <h4>Please search and select a city</h4>
+        </Col>
+      </Row>
+    )
+  }
+  if (weatherData.isLoading) return (
+    <Skeleton width="100%" height="150px" widthRandomness={0} />
+  )
   if (weatherData.isFetched) {
     return (
       <Row className="current-weather-container p-3 text-light">
@@ -30,7 +43,7 @@ const CurrentWeather = () => {
               {weatherData.data.weather[0].description}
             </div>
           )}
-          <h2 className="temprature pt-3">{weatherData.data.main.temp}&deg;</h2>
+          <h2 className="temprature pt-3">{weatherData.data.main.temp}&deg;C</h2>
           <h6>{getFormattedDate(weatherData.data.dt, COMMON_DATE_FORMAT)} &bull; {weatherData.data.name}</h6>
         </Col>
         <Col xs={12} md={6} className="d-flex justify-content-between align-items-center">

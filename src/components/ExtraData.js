@@ -1,5 +1,3 @@
-import { IMAGES } from "../constants";
-
 const ExtraData = ({ title, description, icon }) => {
   return (
     <div

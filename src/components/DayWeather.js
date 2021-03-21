@@ -6,17 +6,18 @@ const DayWeather = ({ weatherData, day }) => {
   const renderWeatherDescription = (data) => (
     <div className="weather-description">
       <div className="text-muted"><small>{data.weather[0].main}</small></div>
-      <div className="temprature">{data.main.temp}&deg;</div>
+      <div className="temprature">{data.main.temp}&deg;C</div>
     </div>
   )
   return (
     <Row className="day-weather-container p-3">
       <Col>
         <h5 className="text-dark">{day}</h5>
-        <div className="time-list d-flex justify-content-between pt-2 pt-md-0">
+        <div className="time-list d-flex justify-content-start pt-2 pt-md-0">
           {
             weatherData.map(data => (
               <ExtraData
+                key={data.dt}
                 title={getFormattedDate(data.dt, 'HH:MM')}
                 icon={getWeatherIconUrl(data.weather[0].icon)}
                 description={renderWeatherDescription(data)}
