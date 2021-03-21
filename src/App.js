@@ -32,7 +32,7 @@ function App() {
   },[]);
 
   return (
-    <Container className="pt-4">
+    <Container className="pt-4 pb-5">
       <Row>
         <Col>
           <h5 className="text-info">Weather Forecast</h5>
@@ -57,7 +57,7 @@ function App() {
           <CurrentWeather />
         </Col>
       </Row>
-      <Row className="pt-3">
+      <Row className="pt-4">
         <Col className="day-weather-list">
           <DayWeatherList />
         </Col>

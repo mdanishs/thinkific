@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import {
+  Alert,
   Col,
   Row
 } from 'react-bootstrap';
@@ -24,6 +25,13 @@ const CurrentWeather = () => {
   if (weatherData.isLoading) return (
     <Skeleton width="100%" height="150px" widthRandomness={0} />
   )
+
+  if (weatherData.error) return (
+    <Row className="pt-1" xs={12}>
+      <Alert className="w-100" title="jani" variant="danger">{weatherData.error}</Alert>
+    </Row>
+  )
+
   if (weatherData.isSuccess) {
     return (
       <Row className="current-weather-container p-3 text-light">

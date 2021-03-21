@@ -1,4 +1,5 @@
 import { useEffect } from "react"
+import { Alert } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux"
 import Skeleton from 'react-skeleton-loader';
 import { getFiveDayForecast } from "../sources"
@@ -23,6 +24,10 @@ const DayWeatherList = () => {
       </>
     )
   }
+
+  if (weatherData.error) return (
+      <Alert className="w-100" title="jani" variant="danger">{weatherData.error}</Alert>
+  )
 
   if (weatherData.isSuccess) {
     return Object.keys(weatherData.data).map(day => {
